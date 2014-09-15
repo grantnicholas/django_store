@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ object.name }}</h1>
+<h2>Your Lists</h2>
+
+<div class="row">
+    <div class="col-sm-6">
+        <p>Talks go here</p>
+    </div>
+
+    <div class="col-sm-6">
+        <p><a href="{% url 'talks:lists:list' %}">Back to lists</a></p>
+    </div>
+</div>
+{% endblock %}

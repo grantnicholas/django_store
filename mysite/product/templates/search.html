@@ -1,0 +1,9 @@
+{% if match_products %}
+    <ol>
+    {% for product in match_products %}
+    	<li><a href="{% url 'product:detail' product.id %}">{{ product.name }}</a></li> <p> The price is ${{ product.price}}  </p>
+    {% endfor %}
+    </ol>
+{% else %}
+    <p>No products are available that match {{search}}. Try another query here.</p>
+{% endif %}

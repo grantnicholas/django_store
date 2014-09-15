@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form onsubmit="return false">
+	{% csrf_token %}
+	<button id="sort_price">Toggle sort by price</button>
+</form>
+
+<form onsubmit="return false">
+	{% csrf_token %}
+	<button id="sort_stock">Toggle sort by stock</button>
+</form>
+
+Your favorite products are:
+
+{% for product in favorites.all %}
+	{% if product.image %}
+		<li><a href="{% url 'product:detail' product.id %}">{{ product.name }}</a></li>
+	{% endif %}
+{% endfor %}
+
+{% endblock %}

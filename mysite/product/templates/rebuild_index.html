@@ -1,0 +1,16 @@
+{% if products %}
+    <ol id="output">
+    {% for product in products %}
+    	<li><a href="{% url 'product:detail' product.id %}">{{ product.name }}</a></li>
+    	{% if product.image %}
+    		<img src= {{product.image.url}} height="300px" width="300px">
+    	{% endif %}
+    	<ul>
+    		<li>The price is ${{ product.price}}  </li> 
+    		<li> The stock is {{ product.stock}}  </li>
+    	</ul>
+    {% endfor %}
+    </ol>
+{% else %}
+    <p>No products are available.</p>
+{% endif %}
